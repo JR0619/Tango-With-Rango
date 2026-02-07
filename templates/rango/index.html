@@ -15,7 +15,33 @@
             <strong>{{ boldmessage }}</strong><br />
         </div>
 
+        <!-- Most Liked Categories -->
         <div>
+    <h2>Most Liked Categories</h2>
+    <ul>
+        {% for category in categories %}
+        <li><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></li>
+        {% empty %}
+        <strong>There are no categories present.</strong>
+        {% endfor %}
+    </ul>
+  </div>
+
+
+        <!-- top 5 -->
+       <div>
+    <h2>Most Viewed Pages</h2>
+    <ul>
+        {% for page in pages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        {% empty %}
+        <strong>There are no pages present.</strong>
+        {% endfor %}
+    </ul>
+</div>
+
+
+         <div>
            <a href="/rango/about/">About</a><br />
            <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
          </div>
