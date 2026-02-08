@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Add Page</title>
-  </head>
+{% extends 'rango/base.html' %}
 
-   <body>
+
+{% block title_block %}
+  Add a Page
+{% endblock %}
+
+{% block body_block %}
       <h1>Add a Page to {{ category.name }}</h1>
 
        <form method="post"><form id="page_form" method="post" action="{% url 'rango:add_page' category.slug %}">
@@ -16,5 +17,5 @@
 
     <br>
     <a href="{% url 'rango:show_category' category.slug %}">Back to Category</a>
-  </body>
-</html>
+
+{% endblock %}

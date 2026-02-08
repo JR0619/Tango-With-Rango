@@ -22,7 +22,7 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'rango/about.html')
+    return render(request, 'rango/about.html', {})
 
 def show_category(request, category_name_slug):
     context_dict ={}
@@ -46,9 +46,8 @@ def goto_page(request, page_id):
         page.save()
         return redirect(page.url)
     except Page.DoesNotExist:
-        return redirect('/rango/')
+        return redirect(reverse('rango:index'))
 
-    return render(request, 'rango/page.html', {'page': page})
 
 
 def add_category(request):
@@ -58,7 +57,7 @@ def add_category(request):
      form = CategoryForm(request.POST)
      if form.is_valid():
        form.save(commit=True)
-       return redirect('/rango/')
+       return redirect(reverse('rango:index'))
      else:
        print(form.errors)
 
