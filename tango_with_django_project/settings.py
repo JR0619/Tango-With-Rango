@@ -32,19 +32,28 @@ SECRET_KEY = "django-insecure-k_-a^&c@%iivpkj&v!fr3i+i**v1ev^8%i1zp)03sm!ddq!8n$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_URL = 'rango:login'
+
+
 ALLOWED_HOSTS = ['JR455.pythonanywhere.com']
+
+PASSWORD_HASHERS = (
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
+
 
 
 # Application definition
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    'rango',
+INSTALLED_APPS =[
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  'rango',
 ]
 
 MIDDLEWARE = [
